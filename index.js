@@ -6,10 +6,10 @@ const defaults = {
   }]
 }
 
+const svgo = require('svgo')(defaults);
+
 module.exports = function svg(options) {
-  const svgo = options && options.raw
-    ? ({ optimize: x => Promise.resolve({ data: x }) })
-    : new (require('svgo'))(options || defaults)
+   
 
   return {
     name: 'svgo',
